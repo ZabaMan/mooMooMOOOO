@@ -1,0 +1,6 @@
+POWER-UP INDEXES
+-----------------
+
+0 - nothing
+1 - flight
+2 - fence
