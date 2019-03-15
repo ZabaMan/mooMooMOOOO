@@ -2081,25 +2081,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2431293977266431931, guid: 8699fe89181efbc478c255ab1e9f8174,
-        type: 3}
-      propertyPath: UI
-      value: 
-      objectReference: {fileID: 1138690495}
-    - target: {fileID: 2431293977266431931, guid: 8699fe89181efbc478c255ab1e9f8174,
-        type: 3}
-      propertyPath: respawn
-      value: 
-      objectReference: {fileID: 241816414}
-    - target: {fileID: 2431293977266431930, guid: 8699fe89181efbc478c255ab1e9f8174,
-        type: 3}
-      propertyPath: _powerUpManager
-      value: 
-      objectReference: {fileID: 163152698}
-    - target: {fileID: 6189424899624519057, guid: 8699fe89181efbc478c255ab1e9f8174,
-        type: 3}
-      propertyPath: minDb
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8699fe89181efbc478c255ab1e9f8174, type: 3}
