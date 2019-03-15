@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager the = null;              //Static instance of GameManager which allows it to be accessed by any other script.
     [SerializeField] private GameObject playerCow;
-    [SerializeField] private List<Player> players;
+   // [SerializeField] private List<Player> players;
     [SerializeField] private List<Transform> respawns;
     //Awake is always called before any Start functions
     void Awake()
@@ -29,9 +29,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()// remove cow spawn
     {
-        for(int i = 0; i < players.Count; i++)
-        {
-            players[i].playerObject = Instantiate(playerCow, respawns[i].position, respawns[i].rotation) as GameObject;
-        }
+        //for(int i = 0; i < players.Count; i++)
+        //{
+        //    players[i].playerObject = Instantiate(playerCow, respawns[i].position, respawns[i].rotation) as GameObject;
+        //}
     }
 }
