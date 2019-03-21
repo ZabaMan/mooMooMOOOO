@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int livesPerRound;
     [SerializeField] private int playerAliveCount;
+    private int currentRound = 0; // 1 is farm, etc, 4 is end/winner
+    [SerializeField] private Transform[] cameraPositions; // 0 = farm
 
     //Awake is always called before any Start functions
     void Awake()
@@ -88,6 +90,7 @@ public class GameManager : MonoBehaviour
                 else if (playerAliveCount == 0)
                 {
                     // Next map
+                    
                 }
             }
 
