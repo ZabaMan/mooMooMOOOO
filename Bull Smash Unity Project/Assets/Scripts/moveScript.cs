@@ -7,9 +7,8 @@ public class moveScript : MonoBehaviour {
     public int turnSpeed = 5;
     public int thrust = 5;
     Rigidbody rb;
-    public bool Player1;
-    public bool Player2;
-    public bool Player3;
+    public int playerNumber;
+
 
     private bool grounded = true;
 
@@ -22,8 +21,6 @@ public class moveScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Player1)
-        {
             xAxis = Input.GetAxisRaw("Horizontal");
 
             transform.Rotate(Vector3.up * (xAxis * turnSpeed));
@@ -38,44 +35,10 @@ public class moveScript : MonoBehaviour {
             {
                 GetComponent<Animation>().Play("headUP");
             }
-        }
-        else if (Player2)
-        {
-            xAxis = Input.GetAxisRaw("Horizontal2");
-
-            transform.Rotate(Vector3.up * (xAxis * turnSpeed));
-
-
-            if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
-            {
-                rb.AddForce(transform.forward * thrust, ForceMode.Impulse);
-                GetComponent<Animation>().Play("headRAM");
-            }
-            else if (Input.GetKeyUp(KeyCode.UpArrow))
-            {
-                GetComponent<Animation>().Play("headUP");
-            }
-        }
-
-        else if (Player3)
-        {
-            xAxis = Input.GetAxisRaw("Horizontal3");
-
-            transform.Rotate(Vector3.up * (xAxis * turnSpeed));
-
-
-            if (Input.GetAxisRaw("Fire1") > 0 && grounded)
-            {
-                rb.AddForce(transform.forward * thrust, ForceMode.Impulse);
-                GetComponent<Animation>().Play("headRAM");
-            }
-            /*else if (Input.GetAxisRaw("Fire1") != -1)
-            {
-                GetComponent<Animation>().Play("headUP");
-            }*/
-        }
-
     }
+       
+
+    
     /*
     private void OnCollisionEnter(Collision collision)
     {

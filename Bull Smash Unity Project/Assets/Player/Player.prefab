@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 54698850}
   - component: {fileID: 54698849}
   - component: {fileID: 54698848}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1158885614}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Overhead Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1801033282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 1879920687}
   - component: {fileID: 1879920686}
   - component: {fileID: 1879920685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 33402185994308542}
   - component: {fileID: 65509125190511730}
   - component: {fileID: 23805118453746716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ BoxCollider:
   m_GameObject: {fileID: 1213779993499760}
   m_Material: {fileID: 13400000, guid: e7c2372d75be18f4db55a0ec36ba09f4, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 33547245830154002}
   - component: {fileID: 65816119483375954}
   - component: {fileID: 23322655481106302}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Horn L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ BoxCollider:
   m_GameObject: {fileID: 1311324126067498}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 95475735277828458}
   - component: {fileID: 111487452566489380}
   - component: {fileID: 128253938}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,9 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 5
   thrust: 5
-  Player1: 1
-  Player2: 0
-  Player3: 0
+  playerNumber: 0
 --- !u!65 &65535689510847378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -651,7 +649,7 @@ GameObject:
   - component: {fileID: 33374569534047816}
   - component: {fileID: 65350584209377598}
   - component: {fileID: 23704342629326566}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Horn R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,7 +687,7 @@ BoxCollider:
   m_GameObject: {fileID: 1587366848394870}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

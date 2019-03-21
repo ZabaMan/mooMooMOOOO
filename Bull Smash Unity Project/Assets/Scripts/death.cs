@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class death : MonoBehaviour {
-
-    private int score;
-    public Text UI;
+    public int playerNumber;
     private bool dead = false;
     public Transform respawn;
     private Rigidbody rb;
@@ -23,13 +20,14 @@ public class death : MonoBehaviour {
     {
         if (other.tag == "death" && !dead)
         {
-            score++;
-            UIupdate();
-            dead = true;
-            GetComponent<moveScript>().groundMe();
-            Invoke("respawnAtTransform", respawnTime);
-           
-
+            
+            //UIupdate();
+            if (GameManager.the.PlayerFell(playerNumber))
+            {
+                dead = true;
+                GetComponent<moveScript>().groundMe();
+                Invoke("respawnAtTransform", respawnTime);
+            }
 
         }
     }
@@ -44,7 +42,7 @@ public class death : MonoBehaviour {
 
     void UIupdate()
     {
-        UI.text = string.Format("{0}", score);
+       // UI.text = string.Format("{0}", score);
     }
 
     
