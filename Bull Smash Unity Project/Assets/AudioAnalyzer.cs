@@ -14,21 +14,37 @@ public class AudioAnalyzer : MonoBehaviour
     public float dbValue;
     private AudioSource audio;
     public float refValue = 0.0001f; //default: 0.1f, adjust if we need different 0db reference, 0.0001f return 0 most time
+    private PlayerMove p;
 
+    private void Awake()
+    {
+        p = GetComponent<PlayerMove>();
+    }
 
     private void Start()
     {
-
-        mic = null;
-
         foreach(string device in Microphone.devices)
         {
-            if(mic== null)
-            {
-                mic = device;
-            }
-
+            print(device);
         }
+        mic = null;
+
+        for(int i=0; i<Microphone.devices.Length; i++)
+        {
+            if (mic == null)
+            {
+                mic = Microphone.devices[p.playerNum - 1];
+            }
+        }
+
+        //foreach(string device in Microphone.devices)
+        //{
+        //    if(mic== null)
+        //    {
+        //        mic = device;
+        //    }
+
+        //}
         samples = new float[FRAME_SIZE];
         sampleRate = AudioSettings.outputSampleRate;
         audio = GetComponent<AudioSource>();

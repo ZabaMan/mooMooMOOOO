@@ -382,9 +382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6b8fffeaf51e3458e6e65bf7eb89ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNum: 1
   anglesPerSec: 180
   db: 0
-  minDb: 50
+  minDb: 60
   forceMultiplier: 5
   boostCD: 0.5
   boostCDRemaining: 0

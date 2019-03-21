@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour
 {
+    public int playerNum;
     public float anglesPerSec;
     public float db;
     public float minDb;
@@ -18,7 +19,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
         rb = GetComponent<Rigidbody>();
     }
 
@@ -41,17 +42,18 @@ public class PlayerMove : MonoBehaviour
 
     void Rotate()
     {
-        float rotX = Input.GetAxis("Horizontal");
+        float rotX = Input.GetAxis("Horizontal"+playerNum);
             float rotSpeed = anglesPerSec * Time.deltaTime;
-            Vector3 rotation = new Vector3(0, rotX * rotSpeed, 0);
-            transform.Rotate(rotation, Space.World);
+        Vector3 rotation = new Vector3(0, rotX * rotSpeed, 0);
+        //Vector3 rotation = new Vector3(0,rotSpeed, 0);
+        transform.Rotate(rotation, Space.World);
         
     }
 
     void Boost()
     {
        rb.AddForce(transform.forward * db * forceMultiplier);        
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity,5);
+        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.x,Mathf.Clamp(rb.velocity.z, 0,10));
         print(rb.velocity.magnitude);
     }
 }
