@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour
 {
+    private Vector3 startPos;
     public int playerNum;
     public float anglesPerSec;
     public float db;
@@ -21,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     {
         
         rb = GetComponent<Rigidbody>();
+        startPos = transform.position;
     }
 
     // Update is called once per frame
@@ -55,5 +57,13 @@ public class PlayerMove : MonoBehaviour
        rb.AddForce(transform.forward * db * forceMultiplier);        
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.x,Mathf.Clamp(rb.velocity.z, 0,10));
         print(rb.velocity.magnitude);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "death")
+        {
+            transform.position = startPos;
+        }
     }
 }
