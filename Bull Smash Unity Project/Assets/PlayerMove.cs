@@ -40,6 +40,11 @@ public class PlayerMove : MonoBehaviour
             Boost();
             
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.position = startPos;
+        }
     }
 
     void Rotate()
