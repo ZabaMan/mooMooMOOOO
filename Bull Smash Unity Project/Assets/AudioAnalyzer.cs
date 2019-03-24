@@ -21,21 +21,10 @@ public class AudioAnalyzer : MonoBehaviour
         p = GetComponent<PlayerMove>();
     }
 
-    private void Start()
-    {
-        foreach(string device in Microphone.devices)
-        {
-            print(device);
-        }
+    public void Start()
+    {        
         mic = null;
-
-        for(int i=0; i<Microphone.devices.Length; i++)
-        {
-            if (mic == null)
-            {
-                mic = Microphone.devices[p.playerNum - 1];
-            }
-        }
+       
 
         //foreach(string device in Microphone.devices)
         //{
@@ -54,12 +43,17 @@ public class AudioAnalyzer : MonoBehaviour
 
     private void Update()
     {
-        AnalyzeAudio();
+        if (mic != null)
+        {
+            
+            AnalyzeAudio();
+        }
     }
 
-    void UpdateMicrophone()
+    public void UpdateMicrophone()
     {
-        //do tomorrow
+        
+
         audio.Stop();
         //start recording audio from mic
         audio.clip = Microphone.Start(mic, true, 10, (int)sampleRate);
@@ -108,4 +102,10 @@ public class AudioAnalyzer : MonoBehaviour
     //    //Gizmos.color = (dbValue >= -10) ? Color.red : Color.yellow;
     //    //Gizmos.DrawSphere(transform.position, 5f);
     //}
+
+    public void ChangeMic(string device)
+    {
+        mic = device;
+        UpdateMicrophone();
+    }
 }
