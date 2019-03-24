@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int playerAliveCount;
     private int currentRound = 0; // 1 is farm, etc, 4 is end/winner
     [SerializeField] private Transform[] cameraPositions; // 0 = farm
+    [SerializeField] private List<MicManager> micManagers;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -45,34 +47,41 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown("1") && !players[0].spawned)
-        { 
-        players[0].playerObject = Instantiate(playerCow, respawns[0].position, respawns[0].rotation) as GameObject;
-        players[0].spawned = true;
-        players[0].playerObject.GetComponent<Renderer>().material = players[0].colour;
-        playersActive += 1;
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                players[i].playerObject = Instantiate(playerCow, respawns[i].position, respawns[i].rotation) as GameObject;
+                players[i].number = i;
+                players[i].spawned = true;
+                players[i].playerObject.GetComponent<Renderer>().material = players[i].colour;
+                players[i].playerObject.GetComponent<PlayerMove>().playerNum = players[i].number;
+                micManagers[i].GetPlayerData(players[i].playerObject);
+                playersActive += 1;
+                playerAliveCount += 1;
+            }
         }
     }
 
-    public bool PlayerFell(int playerNumber)
+    public void PlayerFell(int playerNumber)
     {
-        foreach(Player player in players)
+        foreach (Player player in players)
         {
             if (player.number == playerNumber)
             {
                 player.lives -= 1;
-                if (player.lives == 0)
+                //respawn timer
+                player.playerObject.transform.position = respawns[playerNumber].position;
+                if (player.lives <= 0)
                 {
+                    
                     PlayerDead(playerNumber);
-                    return false;
+                    
                 }
-                else
-                {
-                    return true;
-                }
+
             }
         }
 
-        return false;
+
     }
 
     public void PlayerDead(int playerNumber)
@@ -82,19 +91,25 @@ public class GameManager : MonoBehaviour
             if (player.number == playerNumber)
             {
                 player.alive = false;
+                player.playerObject.SetActive(false);
                 playerAliveCount -= 1;
-                if (playerAliveCount == 1)
+                if (playerAliveCount ==1)
                 {
-                    // Player remaining won!
+                    //player remaining won!
+                    print("won");
                 }
                 else if (playerAliveCount == 0)
                 {
-                    // Next map
-                    
+                    //next map
+                    //update all players points
+                    //spawn at new positions
+                    //lerp camera
+                    //start timer countdown
                 }
+
+
             }
 
         }
-
     }
 }

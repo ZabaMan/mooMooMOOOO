@@ -18,18 +18,18 @@ public class death : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "death" && !dead)
-        {
+        //if (other.tag == "death" && !dead)
+        //{
             
-            //UIupdate();
-            if (GameManager.the.PlayerFell(playerNumber))
-            {
-                dead = true;
-                GetComponent<moveScript>().groundMe();
-                Invoke("respawnAtTransform", respawnTime);
-            }
+        //    //UIupdate();
+        //    if (GameManager.the.PlayerFell(playerNumber))
+        //    {
+        //        dead = true;
+        //        GetComponent<moveScript>().groundMe();
+        //        Invoke("respawnAtTransform", respawnTime);
+        //    }
 
-        }
+        //}
     }
 
     void respawnAtTransform()

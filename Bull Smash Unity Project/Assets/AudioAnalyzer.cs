@@ -65,7 +65,7 @@ public class AudioAnalyzer : MonoBehaviour
             {                
                 //start recording
                 audio.Play();
-                print("started recording");
+
             }
         }
         else

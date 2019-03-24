@@ -26,7 +26,7 @@ public class FollowWaypoints : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) LerpNextWaypoint();
+        //if (Input.GetMouseButtonDown(0)) LerpNextWaypoint();
 
         if (lerp)
         {

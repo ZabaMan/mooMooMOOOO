@@ -17,10 +17,11 @@ public class PlayerMove : MonoBehaviour
     public bool canBoost;
 
     public GameObject soundCircle;
+    private Vector3 startCircleScale;
     // Start is called before the first frame update
     void Start()
     {
-        
+        startCircleScale = soundCircle.transform.localScale;
         rb = GetComponent<Rigidbody>();
         startPos = transform.position;
     }
@@ -32,7 +33,8 @@ public class PlayerMove : MonoBehaviour
         db = Mathf.Clamp(db, 0, 100f);
        
         Rotate();
-        soundCircle.transform.localScale = new Vector3(0.5f*db,0.5f* db,0.5f * db);
+        soundCircle.transform.localScale = 
+            Vector3.Lerp(soundCircle.transform.localScale, startCircleScale, 5f * Time.deltaTime);
         
 
         if (db > minDb)
@@ -59,16 +61,24 @@ public class PlayerMove : MonoBehaviour
 
     void Boost()
     {
-       rb.AddForce(transform.forward * db * forceMultiplier);        
+        Vector3 newScale = new Vector3(0.5f* db, 0.5f * db, 0.5f * db);
+        soundCircle.transform.localScale = Vector3.Lerp(soundCircle.transform.localScale, newScale,10f *Time.deltaTime);
+        rb.AddForce(transform.forward * db * forceMultiplier);        
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y,Mathf.Clamp(rb.velocity.z, 0,10));
-        print(rb.velocity.magnitude);
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "death")
+        if (other.tag == "death")
         {
-            transform.position = startPos;
+
+            GameManager.the.PlayerFell(playerNum);
+            //} else if(other.tag == "death" && GameManager.the.players[playerNum].lives <= 0)
+            //{
+
+            //    GameManager.the.PlayerDead(playerNum);
+            //}
         }
     }
 }

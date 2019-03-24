@@ -10,7 +10,7 @@ public class MicManager : MonoBehaviour
     private List<string> deviceOptions = new List<string> {"None Selected"};
     
     private InputField input;
-    public int playerIndex;
+   
     public GameObject player;
     
 
@@ -18,7 +18,7 @@ public class MicManager : MonoBehaviour
     {
         dropdown = GetComponent<Dropdown>();
         input = GetComponentInChildren<InputField>();
-       // player = GameManager.the.players[playerIndex].playerObject;
+        
        
         //add devices to dropdown list
          //populate devices list
@@ -41,8 +41,8 @@ public class MicManager : MonoBehaviour
              MicDropdownChangeHandler(dropdown);
          });
 
-        //set default input field value
-        input.text = player.GetComponent<PlayerMove>().minDb.ToString();
+        //set default input field value        
+       
 
         input.onEndEdit.AddListener(delegate
         {
@@ -70,5 +70,11 @@ public class MicManager : MonoBehaviour
     private void InputChangeHandler(InputField change)
     {
         player.GetComponent<PlayerMove>().minDb = float.Parse(change.text);
+    }
+
+    public void GetPlayerData(GameObject playerObj)
+    {
+        player = playerObj;
+        input.text = player.GetComponent<PlayerMove>().minDb.ToString();
     }
 }
