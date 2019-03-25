@@ -64,7 +64,7 @@ public class PlayerMove : MonoBehaviour
         Vector3 newScale = new Vector3(0.5f* db, 0.5f * db, 0.5f * db);
         soundCircle.transform.localScale = Vector3.Lerp(soundCircle.transform.localScale, newScale,10f *Time.deltaTime);
         rb.AddForce(transform.forward * db * forceMultiplier);        
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y,Mathf.Clamp(rb.velocity.z, 0,10));
+        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y,Mathf.Clamp(rb.velocity.z, 0,7f));
 
     }
 
