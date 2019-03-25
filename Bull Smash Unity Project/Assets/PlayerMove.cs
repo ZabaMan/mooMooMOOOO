@@ -67,6 +67,14 @@ public class PlayerMove : MonoBehaviour
                 
                 transform.Rotate(-rotation, Space.World);
             }
+        } else if(playerNum == 0)
+        {
+            float inputHor = (Input.GetAxisRaw("D-Pad Horizontal"));
+
+            transform.Rotate(rotation * inputHor, Space.World);
+            
+
+            
         }
         //float rotX = Input.GetAxis("Horizontal"+playerNum);
           

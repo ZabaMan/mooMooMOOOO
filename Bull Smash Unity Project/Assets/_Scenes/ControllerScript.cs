@@ -37,7 +37,7 @@ public class ControllerScript : MonoBehaviour
         //print("Right Thumbstick Horizontal: " + Input.GetAxis("Right Stick Horizontal"));
         //print("Right Thumbstick Vertical: " + Input.GetAxis("Right Stick Vertical"));
         //print("D-Pad Horizontal: " + Input.GetAxis("D-Pad Horizontal"));
-        //print("D-Pad Vertical: " + Input.GetAxis("D-Pad Vertical"));
+       // print("D-Pad Vertical: " + Input.GetAxis("D-Pad Vertical"));
 
         if (Input.GetKeyDown(circleButton))
         {
