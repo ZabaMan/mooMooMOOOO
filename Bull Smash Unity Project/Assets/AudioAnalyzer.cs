@@ -23,7 +23,7 @@ public class AudioAnalyzer : MonoBehaviour
 
     
 
-    private void OnEnable()
+    private void Start()
     {
         mic = null;
 
