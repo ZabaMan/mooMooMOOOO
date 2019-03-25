@@ -46,11 +46,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("1") && !players[0].spawned)
+        if (!players[0].spawned)
         {
             for (int i = 0; i < players.Count; i++)
             {
-                players[i].playerObject = Instantiate(playerCow, respawns[i].position, respawns[i].rotation) as GameObject;
+                players[i].playerObject = Instantiate(playerCow, 
+                    LevelTracker.instance.levels[LevelTracker.instance.currentLevel].spawnPoints[i].position,
+                    LevelTracker.instance.levels[LevelTracker.instance.currentLevel].spawnPoints[i].rotation) as GameObject;
                 players[i].number = i;
                 players[i].spawned = true;
                 players[i].playerObject.GetComponent<Renderer>().material = players[i].colour;
@@ -105,6 +107,9 @@ public class GameManager : MonoBehaviour
                     //spawn at new positions
                     //lerp camera
                     //start timer countdown
+                    LevelTracker.instance.NextLevel();
+                    //reset player alive count
+                    playerAliveCount = players.Count;
                 }
 
 

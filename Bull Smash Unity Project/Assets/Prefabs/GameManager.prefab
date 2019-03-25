@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8846642667400884954}
   - component: {fileID: 8846642667400884955}
+  - component: {fileID: 7810415236711736966}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,17 +48,17 @@ MonoBehaviour:
     type: 3}
   players:
   - score: 0
-    alive: 0
-    lives: 0
+    alive: 1
+    lives: 1
     number: 0
-    colour: {fileID: 2100000, guid: 84530c68fcfa3a54f917fd75100d1ad6, type: 2}
+    colour: {fileID: 2100000, guid: a4df8381e92d31d459b931abd0da289b, type: 2}
     playerObject: {fileID: 0}
     spawned: 0
   - score: 0
-    alive: 0
-    lives: 0
+    alive: 1
+    lives: 1
     number: 0
-    colour: {fileID: 2100000, guid: 289a34566d1dc984d808367eac47e786, type: 2}
+    colour: {fileID: 2100000, guid: f71d08a207a8a8f43a0dae68eae1a7aa, type: 2}
     playerObject: {fileID: 0}
     spawned: 0
   respawns:
@@ -69,3 +70,20 @@ MonoBehaviour:
   micManagers:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &7810415236711736966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846642667400884948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f812919d348c5479c9b26de17d3cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - name: Menu
+  - name: Barn
+  - name: Desert
+  - name: Iceberg

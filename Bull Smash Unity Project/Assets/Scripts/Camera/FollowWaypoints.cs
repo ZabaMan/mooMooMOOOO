@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FollowWaypoints : MonoBehaviour
 {
+    public static FollowWaypoints instance = null;
     public float speed;
     public GameObject waypointHolder;
     public List<Transform> waypoints;
@@ -14,6 +15,15 @@ public class FollowWaypoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+
         nextIndex = 1;
        
         for(int i = 0; i < waypointHolder.transform.childCount; i++)
@@ -41,7 +51,7 @@ public class FollowWaypoints : MonoBehaviour
         lerp = true;
     }
 
-    public void LerpToNext()
+    private void LerpToNext()
     {
         nextIndex = nextIndex % waypoints.Count;
         //nextIndex = currentIndex + 1;
