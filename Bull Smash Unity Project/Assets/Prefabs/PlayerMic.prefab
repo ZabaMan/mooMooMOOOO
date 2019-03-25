@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2435076320925588993}
   - component: {fileID: 2401998596133998967}
   - component: {fileID: 2443631628827346607}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Horn R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2669474455425471492}
   - component: {fileID: 5101250226187171494}
   - component: {fileID: 6189424899624519057}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerMic
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 2434934433678229339}
   - component: {fileID: 2401653992131852571}
   - component: {fileID: 2445290947715290935}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Horn L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 2435070680242213879}
   - component: {fileID: 2401840056997327931}
   - component: {fileID: 2443522054199333973}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 2431293977331596075}
   - component: {fileID: 2431293977331596072}
   - component: {fileID: 2431293977331596073}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2431293978004311563}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 2431293978082707558}
   - component: {fileID: 2431293978082707559}
   - component: {fileID: 2431293978082707556}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -798,7 +798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2431293978301491367}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Overhead Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1630300306339999168}
   - component: {fileID: 5808927181099156877}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,10 +21,12 @@ public class AudioAnalyzer : MonoBehaviour
         p = GetComponent<PlayerMove>();
     }
 
-    public void Start()
-    {        
+    
+
+    private void OnEnable()
+    {
         mic = null;
-       
+
 
         //foreach(string device in Microphone.devices)
         //{

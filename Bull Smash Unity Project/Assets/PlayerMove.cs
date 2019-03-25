@@ -51,11 +51,27 @@ public class PlayerMove : MonoBehaviour
 
     void Rotate()
     {
-        //float rotX = Input.GetAxis("Horizontal"+playerNum);
-            float rotSpeed = anglesPerSec * Time.deltaTime;
+        //if player 0
+        //get keycode from controller input
+        float rotSpeed = anglesPerSec * Time.deltaTime;
         Vector3 rotation = new Vector3(0, rotSpeed, 0);
+        if (playerNum == 1)
+        {
+            if (Input.GetKey(ControllerScript.instance.circleButton))
+            {
+               
+                transform.Rotate(rotation, Space.World);
+            }
+            if (Input.GetKey(ControllerScript.instance.squareButton))
+            {
+                
+                transform.Rotate(-rotation, Space.World);
+            }
+        }
+        //float rotX = Input.GetAxis("Horizontal"+playerNum);
+          
         //Vector3 rotation = new Vector3(0,rotSpeed, 0);
-        transform.Rotate(rotation, Space.World);
+        
         
     }
 

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ControllerScript : MonoBehaviour
 {
+    public static ControllerScript instance;
+
     public KeyCode squareButton = KeyCode.JoystickButton0;
     public KeyCode crossButton = KeyCode.JoystickButton1;
     public KeyCode circleButton = KeyCode.JoystickButton2;
@@ -15,6 +17,19 @@ public class ControllerScript : MonoBehaviour
     public KeyCode startButton = KeyCode.JoystickButton9;
     public KeyCode L3 = KeyCode.JoystickButton10;
     public KeyCode R3 = KeyCode.JoystickButton11;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     private void Update()
     {
         //print("Left Thumbstick Horizontal: " + Input.GetAxis("Horizontal"));
