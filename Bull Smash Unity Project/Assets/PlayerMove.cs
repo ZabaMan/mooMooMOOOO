@@ -60,16 +60,16 @@ public class PlayerMove : MonoBehaviour
             if (Input.GetKey(ControllerScript.instance.circleButton))
             {
                
-                transform.Rotate(rotation, Space.World);
+                transform.Rotate(-rotation, Space.World);
             }
             if (Input.GetKey(ControllerScript.instance.squareButton))
             {
                 
-                transform.Rotate(-rotation, Space.World);
+                transform.Rotate(rotation, Space.World);
             }
         } else if(playerNum == 0)
         {
-            float inputHor = (Input.GetAxisRaw("D-Pad Horizontal"));
+            float inputHor = (-Input.GetAxisRaw("D-Pad Horizontal"));
 
             transform.Rotate(rotation * inputHor, Space.World);
             
