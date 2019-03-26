@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager the = null;              //Static instance of GameManager which allows it to be accessed by any other script.
+    public int scoreIncrementWin = 3;
+    public int scoreIncrementLose = 1;
+
     [SerializeField] private GameObject playerCow;
     public List<Player> players;
     private int playersActive;
@@ -16,6 +19,7 @@ public class GameManager : MonoBehaviour
     private int currentRound = 0; // 1 is farm, etc, 4 is end/winner
     [SerializeField] private Transform[] cameraPositions; // 0 = farm
     [SerializeField] private List<MicManager> micManagers;
+    public Text winnerText;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -54,6 +58,8 @@ public class GameManager : MonoBehaviour
                     LevelTracker.instance.levels[LevelTracker.instance.currentLevel].spawnPoints[i].position,
                     LevelTracker.instance.levels[LevelTracker.instance.currentLevel].spawnPoints[i].rotation) as GameObject;
                 players[i].number = i;
+                int pnum = players[i].number + 1;
+                players[i].name = "Player " + pnum; ;
                 players[i].spawned = true;
                 players[i].playerObject.GetComponent<Renderer>().material = players[i].colour;
                 players[i].playerObject.GetComponent<PlayerMove>().playerNum = players[i].number;
@@ -94,12 +100,20 @@ public class GameManager : MonoBehaviour
             {
                 player.alive = false;
                 player.playerObject.GetComponent<PlayerMove>().enabled=false;
-                //player.playerObject.SetActive(false);
+                player.playerObject.transform.position= LevelTracker.instance.levels[(LevelTracker.instance.currentLevel)+1].spawnPoints[player.number].position;
+                player.playerObject.GetComponent<Rigidbody>().isKinematic = true;
                 playerAliveCount -= 1;
-                if (playerAliveCount ==1)
+                if (playerAliveCount ==1 && LevelTracker.instance.currentLevel>0)
                 {
                     //player remaining won!
-                    print("won");
+                    print(playerNumber);
+                    //get winner index
+                    int winnerIndex = (playerNumber+1) % players.Count;
+                    int winnerNumber = winnerIndex + 1;
+                    //add scores
+                    players[winnerIndex].score += scoreIncrementWin;
+                    players[playerNumber].score += scoreIncrementLose;
+                    winnerText.text = "Player " +winnerNumber + " wins";
                 }
                 else if (playerAliveCount == 0)
                 {
@@ -107,10 +121,11 @@ public class GameManager : MonoBehaviour
                     //update all players points
                     //spawn at new positions
                     //lerp camera
-                    //start timer countdown
-                    LevelTracker.instance.NextLevel();
                     //reset player alive count
                     playerAliveCount = players.Count;
+                    //start timer countdown
+                    StartCoroutine(LevelTracker.instance.NextLevel(1f));
+                    
                 }
 
 

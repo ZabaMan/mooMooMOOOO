@@ -18,8 +18,16 @@ public class Fence : Breakable
     public override IEnumerator Break(float t)
     {
         yield return new WaitForSeconds(t);
-        base.anim.SetBool("break", true);
+        //disable parent collider
         base.collider.enabled = false;
+        //add colliders and rbs to all children        
+        foreach(Transform child in transform.GetComponentInChildren<Transform>())
+        {
+            child.gameObject.AddComponent<BoxCollider>();
+            child.gameObject.AddComponent<Rigidbody>();
+            child.GetComponent<Rigidbody>().mass = 0.5f;
+            child.GetComponent<Rigidbody>().AddExplosionForce(100f, transform.position, 10f);
+        }
 
     }
 

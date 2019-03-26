@@ -5,18 +5,20 @@ using UnityEngine;
 [System.Serializable]
 public class Player
 {
+    [HideInInspector]
+    public string name;
    //[HideInInspector]
     public int score;
-  // [HideInInspector]
+   [HideInInspector]
     public bool alive = true;
-   //[HideInInspector]
+   [HideInInspector]
     public int lives = 1; // Gets set to 3 after first death
-  // [HideInInspector]
+   [HideInInspector]
     public int number;
    public Material colour;
-   //[HideInInspector]
+   [HideInInspector]
     public GameObject playerObject;
-   //[HideInInspector]
+   [HideInInspector]
     public bool spawned;
 
 }

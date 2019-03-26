@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelTracker : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class LevelTracker : MonoBehaviour
     public static LevelTracker instance = null;
     public List<Level> levels;
     public int currentLevel = 0;
+    public Text countdownText;
 
     // Start is called before the first frame update
     private void Awake()
@@ -45,8 +47,10 @@ public class LevelTracker : MonoBehaviour
         }
     }
 
-    public void NextLevel()
+    public IEnumerator NextLevel(float t)
     {
+        //clear winner text
+        GameManager.the.winnerText.text = "";
         //set last levels objects inactive
         foreach (GameObject obj in levels[currentLevel].toSetActive)
         {
@@ -64,21 +68,38 @@ public class LevelTracker : MonoBehaviour
             {
                 obj.SetActive(true);
             }
-        }        
-        //set player spawn points
-        for(int i=0; i< GameManager.the.players.Count; i++)
-        {
-            GameManager.the.players[i].playerObject.transform.position = 
-                levels[currentLevel].spawnPoints[i].position;
-            //set players active
-            //GameManager.the.players[i].playerObject.SetActive(true);
-            GameManager.the.players[i].playerObject.GetComponent<PlayerMove>().enabled=true;
-
         }
         //lerp camera
         FollowWaypoints.instance.LerpNextWaypoint();
         //change bg colour
         Camera.main.backgroundColor = levels[currentLevel].backgroundColour;
-        
+        //set player spawn points
+        for (int i=0; i< GameManager.the.players.Count; i++)
+        {
+            GameManager.the.players[i].playerObject.transform.position = 
+                levels[currentLevel].spawnPoints[i].position;
+            //set players active
+            //GameManager.the.players[i].playerObject.SetActive(true);          
+
+        }
+        //wait1
+        yield return new WaitForSeconds(t);
+        countdownText.text = "3";
+        yield return new WaitForSeconds(t);
+        countdownText.text = "2";
+        yield return new WaitForSeconds(t);
+        countdownText.text = "1";
+        yield return new WaitForSeconds(t);
+        countdownText.text = "MOOO!!!";
+
+        foreach (Player p in GameManager.the.players)
+        {
+            
+            p.playerObject.GetComponent<Rigidbody>().isKinematic = false;
+            p.playerObject.GetComponent<PlayerMove>().enabled = true;
+            
+        }
+        yield return new WaitForSeconds(t);
+        countdownText.text = "";
     }
 }
