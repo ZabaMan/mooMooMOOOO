@@ -24,7 +24,11 @@ public class Fence : Breakable
         foreach(Transform child in transform.GetComponentInChildren<Transform>())
         {
             child.gameObject.AddComponent<BoxCollider>();
-            child.gameObject.AddComponent<Rigidbody>();
+            if(child.GetComponent<Rigidbody>() == null)
+            {
+                child.gameObject.AddComponent<Rigidbody>();
+            }
+           
             child.GetComponent<Rigidbody>().mass = 0.5f;
             child.GetComponent<Rigidbody>().AddExplosionForce(100f, transform.position, 10f);
         }
