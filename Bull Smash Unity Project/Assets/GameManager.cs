@@ -61,7 +61,8 @@ public class GameManager : MonoBehaviour
                 int pnum = players[i].number + 1;
                 players[i].name = "Player " + pnum; ;
                 players[i].spawned = true;
-                players[i].playerObject.GetComponent<Renderer>().material = players[i].colour;
+                MeshRenderer beltRend = players[i].playerObject.transform.Find("Belt").gameObject.GetComponent<MeshRenderer>();
+                beltRend.material.color = players[i].colour.color;                
                 players[i].playerObject.GetComponent<PlayerMove>().playerNum = players[i].number;
                 micManagers[i].GetPlayerData(players[i].playerObject);
                 playersActive += 1;
