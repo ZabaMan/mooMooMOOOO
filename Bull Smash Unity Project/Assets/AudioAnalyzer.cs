@@ -12,7 +12,7 @@ public class AudioAnalyzer : MonoBehaviour
     private int FRAME_SIZE = 1024; //gets sound level for the last 21ms (1024/48000)
     private float sampleRate; //how many samples to take each sec
     public float dbValue;
-    private AudioSource audio;
+    public AudioSource audio;
     public float refValue = 0.0001f; //default: 0.1f, adjust if we need different 0db reference, 0.0001f return 0 most time
     private PlayerMove p;
 
@@ -109,5 +109,14 @@ public class AudioAnalyzer : MonoBehaviour
     {
         mic = device;
         UpdateMicrophone();
+    }
+
+    public void PauseMic()
+    {
+        audio.Pause();
+    }
+    public void ResumeMic()
+    {
+        audio.Play();
     }
 }

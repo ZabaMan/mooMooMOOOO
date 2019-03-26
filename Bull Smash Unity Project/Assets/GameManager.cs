@@ -93,7 +93,8 @@ public class GameManager : MonoBehaviour
             if (player.number == playerNumber)
             {
                 player.alive = false;
-                player.playerObject.SetActive(false);
+                player.playerObject.GetComponent<PlayerMove>().enabled=false;
+                //player.playerObject.SetActive(false);
                 playerAliveCount -= 1;
                 if (playerAliveCount ==1)
                 {
