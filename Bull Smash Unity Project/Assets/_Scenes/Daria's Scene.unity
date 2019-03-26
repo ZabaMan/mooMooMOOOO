@@ -5104,6 +5104,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940283238}
     m_Modifications:
+    - target: {fileID: 100000, guid: d4d8511c173315643a3fabe355310dd7, type: 3}
+      propertyPath: m_Name
+      value: Ground - Ice (Inside)
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d4d8511c173315643a3fabe355310dd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.029999
@@ -5159,10 +5163,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: d4d8511c173315643a3fabe355310dd7, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8675421
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: d4d8511c173315643a3fabe355310dd7, type: 3}
-      propertyPath: m_Name
-      value: Ground - Ice (Inside)
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d4d8511c173315643a3fabe355310dd7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7067,6 +7067,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940283238}
     m_Modifications:
+    - target: {fileID: 100000, guid: d9c771bc797e7e944ba86074eec95056, type: 3}
+      propertyPath: m_Name
+      value: Ground - Ice (Outside)
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9c771bc797e7e944ba86074eec95056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.031007752
@@ -7122,10 +7126,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: d9c771bc797e7e944ba86074eec95056, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.85971063
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: d9c771bc797e7e944ba86074eec95056, type: 3}
-      propertyPath: m_Name
-      value: Ground - Ice (Outside)
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d9c771bc797e7e944ba86074eec95056, type: 3}
       propertyPath: m_Materials.Array.data[0]
