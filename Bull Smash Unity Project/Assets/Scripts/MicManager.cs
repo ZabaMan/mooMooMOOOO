@@ -53,8 +53,8 @@ public class MicManager : MonoBehaviour
 
 
     private void Update()
-    {       
-
+    {
+       
     }
 
     private void MicDropdownChangeHandler(Dropdown change)
@@ -62,6 +62,7 @@ public class MicManager : MonoBehaviour
         
         if (change.captionText.text != "None Selected")
         {
+            
             player.GetComponent<AudioAnalyzer>().ChangeMic(change.captionText.text);
             
         }
