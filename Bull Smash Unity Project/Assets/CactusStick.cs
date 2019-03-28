@@ -7,23 +7,21 @@ public class CactusStick : MonoBehaviour
 
     [SerializeField] float destroyAfterContact = 1;
     private bool timeToReleaseCows;
-    private bool releasedCows;
-    private List<GameObject> playersStuck = new List<GameObject>();
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.GetComponent<PlayerMove>())
         {
             if (!timeToReleaseCows)
             {
-                collision.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 collision.gameObject.GetComponent<PlayerMove>().enabled = false;
-                playersStuck.Add(collision.gameObject);
             }
-            if (!releasedCows)
+            Invoke("ReleaseCows", destroyAfterContact);
+
+            if (timeToReleaseCows)
             {
-                timeToReleaseCows = true;
-                releasedCows = true;
+                collision.gameObject.GetComponent<PlayerMove>().enabled = true;
+                Destroy(gameObject);
             }
         }
     }
@@ -36,20 +34,10 @@ public class CactusStick : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void ReleaseCows()
     {
-        if (timeToReleaseCows)
-        {
-            destroyAfterContact -= Time.deltaTime;
-            if (destroyAfterContact <= 0)
-            {
-                foreach(GameObject cow in playersStuck)
-                {
-                    cow.GetComponent<PlayerMove>().enabled = true;
-                }
-                Destroy(gameObject);
-            }
-        }
+        timeToReleaseCows = true;
+        Destroy(gameObject, destroyAfterContact+ 0.1f);
     }
 
 
