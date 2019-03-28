@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
                 player.lives -= 1;
                 //respawn timer
                 player.playerObject.transform.position = respawns[playerNumber].position;
+                player.playerObject.transform.rotation = respawns[playerNumber].rotation;
                 if (player.lives <= 0)
                 {
                     
@@ -102,6 +103,7 @@ public class GameManager : MonoBehaviour
                 player.alive = false;
                 player.playerObject.GetComponent<PlayerMove>().enabled=false;
                 player.playerObject.transform.position= LevelTracker.instance.levels[(LevelTracker.instance.currentLevel)+1].spawnPoints[player.number].position;
+                player.playerObject.transform.rotation = LevelTracker.instance.levels[(LevelTracker.instance.currentLevel) + 1].spawnPoints[player.number].rotation;
                 player.playerObject.GetComponent<Rigidbody>().isKinematic = true;
                 playerAliveCount -= 1;
                 if (playerAliveCount ==1 && LevelTracker.instance.currentLevel>0)
@@ -124,6 +126,7 @@ public class GameManager : MonoBehaviour
                     //lerp camera
                     //reset player alive count
                     playerAliveCount = players.Count;
+                    player.lives=livesPerRound;
                     //start timer countdown
                     StartCoroutine(LevelTracker.instance.NextLevel(1f));
                     
