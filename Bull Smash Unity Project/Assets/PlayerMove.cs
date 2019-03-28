@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour
 {
+    [SerializeField] private enum InputType {Mic, Keyboard};
+    [SerializeField] InputType myInput;
+
     private Vector3 startPos;
     public int playerNum;
     public float anglesPerSec;
@@ -21,6 +24,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        myInput = InputType.Keyboard;
         startCircleScale = soundCircle.transform.localScale;
         rb = GetComponent<Rigidbody>();
         startPos = transform.position;
@@ -36,12 +40,9 @@ public class PlayerMove : MonoBehaviour
         soundCircle.transform.localScale = 
             Vector3.Lerp(soundCircle.transform.localScale, startCircleScale, 5f * Time.deltaTime);
         
-
-        if (db > minDb)
-        {
             Boost();
             
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -55,26 +56,35 @@ public class PlayerMove : MonoBehaviour
         //get keycode from controller input
         float rotSpeed = anglesPerSec * Time.deltaTime;
         Vector3 rotation = new Vector3(0, rotSpeed, 0);
-        if (playerNum == 1)
+        if (myInput == InputType.Mic)
         {
-            if (Input.GetKey(ControllerScript.instance.circleButton))
+            if (playerNum == 1)
             {
-               
-                transform.Rotate(-rotation, Space.World);
+                if (Input.GetKey(ControllerScript.instance.circleButton))
+                {
+
+                    transform.Rotate(-rotation, Space.World);
+                }
+                if (Input.GetKey(ControllerScript.instance.squareButton))
+                {
+
+                    transform.Rotate(rotation, Space.World);
+                }
             }
-            if (Input.GetKey(ControllerScript.instance.squareButton))
+            else if (playerNum == 0)
             {
-                
-                transform.Rotate(rotation, Space.World);
+                float inputHor = (-Input.GetAxisRaw("D-Pad Horizontal"));
+
+                transform.Rotate(rotation * inputHor, Space.World);
+
+
+
             }
-        } else if(playerNum == 0)
+        }
+        else
         {
-            float inputHor = (-Input.GetAxisRaw("D-Pad Horizontal"));
-
-            transform.Rotate(rotation * inputHor, Space.World);
-            
-
-            
+            if(playerNum==0) transform.Rotate(rotation * Input.GetAxisRaw("Horizontal"),Space.World);
+            else transform.Rotate(rotation * Input.GetAxisRaw("Horizontal2"), Space.World);
         }
         //float rotX = Input.GetAxis("Horizontal"+playerNum);
           
@@ -85,11 +95,32 @@ public class PlayerMove : MonoBehaviour
 
     void Boost()
     {
-        Vector3 newScale = new Vector3(0.5f* db, 0.5f * db, 0.5f * db);
-        soundCircle.transform.localScale = Vector3.Lerp(soundCircle.transform.localScale, newScale,10f *Time.deltaTime);
-        rb.AddForce(transform.forward * db * forceMultiplier);        
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y,Mathf.Clamp(rb.velocity.z, 0,7f));
+        if (myInput == InputType.Mic)
+        {
+            if (db > minDb)
+            {
+                Vector3 newScale = new Vector3(0.5f * db, 0.5f * db, 0.5f * db);
+                soundCircle.transform.localScale = Vector3.Lerp(soundCircle.transform.localScale, newScale, 10f * Time.deltaTime);
+                rb.AddForce(transform.forward * db * forceMultiplier);
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Mathf.Clamp(rb.velocity.z, 0, 7f));
+                
+                
+            }
+        }
+        else
+        {
+            if (playerNum == 0)
+            {
+                rb.AddForce(transform.forward * 60 * forceMultiplier* Input.GetAxisRaw("Vertical"));
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Mathf.Clamp(rb.velocity.z, 0, 7f));
+            }
+            else
+            {
+                rb.AddForce(transform.forward * 60 * forceMultiplier * Input.GetAxisRaw("Vertical2"));
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Mathf.Clamp(rb.velocity.z, 0, 7f));
+            }
 
+        }
     }
 
     private void OnTriggerEnter(Collider other)
