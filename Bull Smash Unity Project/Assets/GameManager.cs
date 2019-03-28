@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
                     //lerp camera
                     //reset player alive count
                     playerAliveCount = players.Count;
+                    player.lives=livesPerRound;
                     //start timer countdown
                     StartCoroutine(LevelTracker.instance.NextLevel(1f));
                     
