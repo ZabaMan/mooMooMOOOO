@@ -34,10 +34,12 @@ public class WhaleRiseAndSpray : MonoBehaviour
         spraysDone++;
         if (spraysDone != numberOfSpraysPerRise)
         {
+            print(spraysDone);
             Invoke("Spray", timeBetweenSprays);
         }
         else
         {
+            spraysDone = 0;
             Invoke("Lower", timeTillFirstSpray);
         }
     }
