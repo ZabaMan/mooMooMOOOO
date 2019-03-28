@@ -67,7 +67,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654378431452619097}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.29, y: 1.2899997, z: 1.2899997}
   m_Children:
@@ -485,11 +485,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 33
       objectReference: {fileID: 0}
-    - target: {fileID: 3856795493921710197, guid: 4706f281e2e8c7b48a8942cda8a0c7e9,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4706f281e2e8c7b48a8942cda8a0c7e9, type: 3}
 --- !u!4 &2752787406667601119 stripped
@@ -660,6 +655,26 @@ PrefabInstance:
       propertyPath: rotateAroundTarget
       value: 
       objectReference: {fileID: 7090727942804630829}
+    - target: {fileID: 2664930958037237085, guid: 50234180065c0b74cbabda39b42757af,
+        type: 3}
+      propertyPath: shootSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664930957172335863, guid: 50234180065c0b74cbabda39b42757af,
+        type: 3}
+      propertyPath: liftSpeed
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664930957172335863, guid: 50234180065c0b74cbabda39b42757af,
+        type: 3}
+      propertyPath: pullSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664930957172335863, guid: 50234180065c0b74cbabda39b42757af,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50234180065c0b74cbabda39b42757af, type: 3}
 --- !u!4 &7859504940880550150 stripped
@@ -755,6 +770,26 @@ PrefabInstance:
       propertyPath: rotateAroundTarget
       value: 
       objectReference: {fileID: 7090727942804630829}
+    - target: {fileID: 2664930958037237085, guid: 50234180065c0b74cbabda39b42757af,
+        type: 3}
+      propertyPath: shootSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664930957172335863, guid: 50234180065c0b74cbabda39b42757af,
+        type: 3}
+      propertyPath: liftSpeed
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664930957172335863, guid: 50234180065c0b74cbabda39b42757af,
+        type: 3}
+      propertyPath: pullSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664930957172335863, guid: 50234180065c0b74cbabda39b42757af,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50234180065c0b74cbabda39b42757af, type: 3}
 --- !u!4 &8155999490319048939 stripped
