@@ -43,6 +43,9 @@ public class ControllerScript : MonoBehaviour
         {
             print("circle pressed");
         }
-
+        if (Input.GetButtonDown("Fire1"))
+        {
+            print("square pressed");
+        }
     }
 }

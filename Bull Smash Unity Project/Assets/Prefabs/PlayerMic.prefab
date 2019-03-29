@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInput: 0
+  maxSpeed: 40
   playerNum: 1
   anglesPerSec: 180
   db: 0
@@ -984,14 +985,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2426762131149877441}
     m_Modifications:
-    - target: {fileID: 100000, guid: 8969fe39d1b9a86439c957ac2c37242c, type: 3}
-      propertyPath: m_Name
-      value: Belt
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 8969fe39d1b9a86439c957ac2c37242c, type: 3}
-      propertyPath: m_TagString
-      value: belt
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8969fe39d1b9a86439c957ac2c37242c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.185
@@ -1047,6 +1040,14 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 8969fe39d1b9a86439c957ac2c37242c, type: 3}
       propertyPath: m_LocalScale.z
       value: 2.1000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8969fe39d1b9a86439c957ac2c37242c, type: 3}
+      propertyPath: m_Name
+      value: Belt
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8969fe39d1b9a86439c957ac2c37242c, type: 3}
+      propertyPath: m_TagString
+      value: belt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8969fe39d1b9a86439c957ac2c37242c, type: 3}

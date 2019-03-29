@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private enum InputType { Mic, Keyboard };
     [SerializeField] InputType myInput;
-
+    public float maxSpeed=10f;
     private Vector3 startPos;
     public int playerNum;
     public float anglesPerSec;
@@ -24,7 +24,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myInput = InputType.Keyboard;
+        myInput = InputType.Mic;
         startCircleScale = soundCircle.transform.localScale;
         rb = GetComponent<Rigidbody>();
         startPos = transform.position;
@@ -36,13 +36,17 @@ public class PlayerMove : MonoBehaviour
         db = GetComponent<AudioAnalyzer>().dbValue;
         db = Mathf.Clamp(db, 0, 100f);
 
+
+
         Rotate();
         soundCircle.transform.localScale =
             Vector3.Lerp(soundCircle.transform.localScale, startCircleScale, 5f * Time.deltaTime);
 
         Boost();
-
-
+        if(rb.velocity.magnitude >maxSpeed)
+        {
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -99,10 +103,12 @@ public class PlayerMove : MonoBehaviour
         {
             if (db > minDb)
             {
+                //db = Mathf.Clamp(db,40, 80);
                 Vector3 newScale = new Vector3(0.5f * db, 0.5f * db, 0.5f * db);
                 soundCircle.transform.localScale = Vector3.Lerp(soundCircle.transform.localScale, newScale, 10f * Time.deltaTime);
                 rb.AddForce(transform.forward * db * forceMultiplier);
-                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Mathf.Clamp(rb.velocity.z, 0, 7f));
+               // rb.AddForce(transform.forward *100*forceMultiplier);
+               
 
 
             }
