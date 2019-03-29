@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
                     //respawn timer
                     LevelTracker.instance.Respawn(playerNumber, player.playerObject.transform);
 
-                    print("player " + player.number + " fell");
+
                     if (player.lives <= 0)
                     {
 
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
                 if (playerAliveCount ==1 && LevelTracker.instance.currentLevel>0)
                 {
                     //player remaining won!
-                    print(playerNumber); 
+
                     //get winner index
                     int winnerIndex = (playerNumber+1) % players.Count;
                     int winnerNumber = winnerIndex + 1;
