@@ -11,6 +11,7 @@ public class LevelTracker : MonoBehaviour
         public string name;
         public List<Transform> spawnPoints;
         public List<GameObject> toSetActive;
+        public List<Balloon> balloons;
         public Color backgroundColour;
     }
 
@@ -42,6 +43,7 @@ public class LevelTracker : MonoBehaviour
                 {
                     obj.SetActive(false);
                 }
+                
             }
             
         }
@@ -85,15 +87,18 @@ public class LevelTracker : MonoBehaviour
             GameManager.the.players[i].lives = GameManager.the.livesPerRound;
 
         }
-        //wait1
-        yield return new WaitForSeconds(t);
-        countdownText.text = "3";
-        yield return new WaitForSeconds(t);
-        countdownText.text = "2";
-        yield return new WaitForSeconds(t);
-        countdownText.text = "1";
-        yield return new WaitForSeconds(t);
-        countdownText.text = "MOOO!!!";
+        //wait1 (only if not on the very last level)
+        if (currentLevel != levels.Count - 1)
+        {
+            yield return new WaitForSeconds(t);
+            countdownText.text = "3";
+            yield return new WaitForSeconds(t);
+            countdownText.text = "2";
+            yield return new WaitForSeconds(t);
+            countdownText.text = "1";
+            yield return new WaitForSeconds(t);
+            countdownText.text = "MOOO!!!";
+        }
 
         foreach (Player p in GameManager.the.players)
         {

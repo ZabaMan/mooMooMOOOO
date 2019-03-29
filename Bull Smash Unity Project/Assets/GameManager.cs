@@ -77,16 +77,28 @@ public class GameManager : MonoBehaviour
         {
             if (player.number == playerNumber)
             {
-                player.lives -= 1;
-                //respawn timer
-                LevelTracker.instance.Respawn(playerNumber, player.playerObject.transform);
-                
-                print("player " + player.number + " fell");
-                if (player.lives <= 0)
+                if (playerAliveCount == 1)
                 {
-                    
                     PlayerDead(playerNumber);
-                    
+                }
+                else
+                {
+                    player.lives -= 1;
+                    //balloons
+                    if (LevelTracker.instance.levels[LevelTracker.instance.currentLevel].balloons.Count > 0)
+                    {
+                        LevelTracker.instance.levels[LevelTracker.instance.currentLevel].balloons[playerNumber].PopBalloon();
+                    }
+                    //respawn timer
+                    LevelTracker.instance.Respawn(playerNumber, player.playerObject.transform);
+
+                    print("player " + player.number + " fell");
+                    if (player.lives <= 0)
+                    {
+
+                        PlayerDead(playerNumber);
+
+                    }
                 }
 
             }

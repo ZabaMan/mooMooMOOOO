@@ -6,7 +6,7 @@ using UnityEngine;
 public class Fence : Breakable
 {
     public float breakAfter = 0;
- 
+    public float explosionForce;
 
     private void Awake()
     {
@@ -30,7 +30,7 @@ public class Fence : Breakable
             }
            
             child.GetComponent<Rigidbody>().mass = 0.5f;
-            child.GetComponent<Rigidbody>().AddExplosionForce(100f, transform.position, 10f);
+            child.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, 10f);
         }
 
     }
