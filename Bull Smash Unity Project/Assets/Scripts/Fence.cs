@@ -30,7 +30,7 @@ public class Fence : Breakable
             }
            
             child.GetComponent<Rigidbody>().mass = 0.5f;
-            child.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, 10f);
+            child.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, 100f);
         }
 
     }
