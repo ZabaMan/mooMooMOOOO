@@ -61,7 +61,6 @@ Transform:
   m_Children:
   - {fileID: 569862475683259058}
   - {fileID: 569862477755287294}
-  - {fileID: 2766157325887090161}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92,7 +91,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569862476624662930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -13.9, z: -3.43}
+  m_LocalPosition: {x: 0, y: -13.115, z: -3.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 569862475683259058}
@@ -183,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569862477519423888}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -13.899999, z: 3.22}
+  m_LocalPosition: {x: 0, y: -13.59, z: 3.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 569862475683259058}
@@ -287,6 +286,7 @@ Transform:
   - {fileID: 383365971972494888}
   - {fileID: 6887787302189425837}
   - {fileID: 2714974300605394111}
+  - {fileID: 2766157325887090161}
   m_Father: {fileID: 569862476545520705}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,12 +346,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6407531942001111154}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -9.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 569862476545520705}
-  m_RootOrder: 2
+  m_Father: {fileID: 569862477755287294}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3835079581909217547
 BoxCollider:
@@ -463,10 +463,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3681458595263890808}
     m_Modifications:
-    - target: {fileID: 100000, guid: bfaa3b715944bac4c8ec26eb98158dda, type: 3}
-      propertyPath: m_Name
-      value: Ground - Grass
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bfaa3b715944bac4c8ec26eb98158dda, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -522,6 +518,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: bfaa3b715944bac4c8ec26eb98158dda, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bfaa3b715944bac4c8ec26eb98158dda, type: 3}
+      propertyPath: m_Name
+      value: Ground - Grass
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: bfaa3b715944bac4c8ec26eb98158dda, type: 3}
       propertyPath: m_Materials.Array.data[0]

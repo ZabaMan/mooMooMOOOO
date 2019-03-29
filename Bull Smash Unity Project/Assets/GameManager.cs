@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
                 if (playerAliveCount ==1 && LevelTracker.instance.currentLevel>0)
                 {
                     //player remaining won!
-                    print(playerNumber);
+                    print(playerNumber); 
                     //get winner index
                     int winnerIndex = (playerNumber+1) % players.Count;
                     int winnerNumber = winnerIndex + 1;

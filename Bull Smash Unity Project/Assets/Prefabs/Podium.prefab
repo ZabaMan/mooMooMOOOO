@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7605589900822233691}
   - component: {fileID: 754887188407298312}
   - component: {fileID: 8960234358372494438}
+  - component: {fileID: 8443629461132339146}
+  - component: {fileID: 7788040204470164854}
   m_Layer: 0
   m_Name: Podium
   m_TagString: Untagged
@@ -77,3 +79,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8443629461132339146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954382766895794920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.25, y: 4.19941, z: 2.000001}
+  m_Center: {x: 0.06, y: 0.00000003783387, z: 1.0000004}
+--- !u!65 &7788040204470164854
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954382766895794920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.25, y: 4.19941, z: 2.000001}
+  m_Center: {x: 3.46, y: 0.00000003783387, z: -0.14}
