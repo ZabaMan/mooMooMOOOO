@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private int playersActive;
     [SerializeField] private List<Transform> respawns;
 
-    [SerializeField] private int livesPerRound;
+    [SerializeField] public int livesPerRound;
     [SerializeField] private int playerAliveCount;
     private int currentRound = 0; // 1 is farm, etc, 4 is end/winner
     [SerializeField] private Transform[] cameraPositions; // 0 = farm
@@ -79,8 +79,9 @@ public class GameManager : MonoBehaviour
             {
                 player.lives -= 1;
                 //respawn timer
-                player.playerObject.transform.position = respawns[playerNumber].position;
-                player.playerObject.transform.rotation = respawns[playerNumber].rotation;
+                LevelTracker.instance.Respawn(playerNumber, player.playerObject.transform);
+                
+                print("player " + player.number + " fell");
                 if (player.lives <= 0)
                 {
                     

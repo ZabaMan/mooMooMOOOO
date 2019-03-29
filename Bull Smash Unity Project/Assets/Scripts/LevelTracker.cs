@@ -73,13 +73,16 @@ public class LevelTracker : MonoBehaviour
         FollowWaypoints.instance.LerpNextWaypoint();
         //change bg colour
         Camera.main.backgroundColor = levels[currentLevel].backgroundColour;
-        //set player spawn points
+        //set player spawn points and reset lives
         for (int i=0; i< GameManager.the.players.Count; i++)
         {
+            //spawns
             GameManager.the.players[i].playerObject.transform.position = 
                 levels[currentLevel].spawnPoints[i].position;
-            //set players active
-            //GameManager.the.players[i].playerObject.SetActive(true);          
+            GameManager.the.players[i].playerObject.transform.rotation =
+                levels[currentLevel].spawnPoints[i].rotation;
+            //lives
+            GameManager.the.players[i].lives = GameManager.the.livesPerRound;
 
         }
         //wait1
@@ -101,5 +104,11 @@ public class LevelTracker : MonoBehaviour
         }
         yield return new WaitForSeconds(t);
         countdownText.text = "";
+    }
+
+    public void Respawn(int playerNum, Transform myTrans)
+    {
+        myTrans.position = levels[currentLevel].spawnPoints[playerNum].position;
+        myTrans.rotation = levels[currentLevel].spawnPoints[playerNum].rotation;
     }
 }

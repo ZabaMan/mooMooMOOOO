@@ -11,7 +11,7 @@ public class Player
     public int score;
    [HideInInspector]
     public bool alive = true;
-   [HideInInspector]
+   //[HideInInspector]
     public int lives = 1; // Gets set to 3 after first death
    [HideInInspector]
     public int number;
