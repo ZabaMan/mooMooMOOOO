@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
+    public bool resetGame;
     public bool ready1;
     public bool ready2;
     Animator anim;
@@ -17,11 +19,18 @@ public class StartGame : MonoBehaviour
     {
         if(ready1 && ready2)
         {
-            foreach(StartPad s in transform.GetComponentsInChildren<StartPad>())
+            if (!resetGame)
             {
-                s.gameObject.SetActive(false);
+                foreach (StartPad s in transform.GetComponentsInChildren<StartPad>())
+                {
+                    s.gameObject.SetActive(false);
+                }
+                anim.SetBool("fall", true);
             }
-            anim.SetBool("fall", true);
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 }

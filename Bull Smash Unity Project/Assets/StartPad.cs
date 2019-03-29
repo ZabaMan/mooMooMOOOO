@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StartPad : MonoBehaviour
 {
+    
     [Range(0, 1)]
      public int index;
     public StartGame sg;
@@ -19,16 +20,20 @@ public class StartPad : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //change mat
-            mr.material = other.transform.Find("Belt").GetComponent<MeshRenderer>().material;
-            if (index == 0)
-            {
-                sg.ready1 = true;
-            }
-            else
-            {
-                sg.ready2 = true;
-            }
+            
+                //change mat
+                mr.material = other.transform.Find("Belt").GetComponent<MeshRenderer>().material;
+                if (index == 0)
+                {
+                    sg.ready1 = true;
+                }
+                else
+                {
+                    sg.ready2 = true;
+                }
+            
+
+            
         }
     }
     private void OnTriggerExit(Collider other)

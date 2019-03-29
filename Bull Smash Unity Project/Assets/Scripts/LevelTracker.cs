@@ -79,7 +79,7 @@ public class LevelTracker : MonoBehaviour
         for (int i=0; i< GameManager.the.players.Count; i++)
         {
             
-            if (currentLevel != levels.Count)
+            if (currentLevel != levels.Count-1)
             {
                 //spawns
                 GameManager.the.players[i].playerObject.transform.position =
@@ -92,20 +92,33 @@ public class LevelTracker : MonoBehaviour
             else //last level
             {
                 print("last level");
-                if(GameManager.the.players[i].score > GameManager.the.players[i + 1].score)
+                if(GameManager.the.players[0].score > GameManager.the.players[1].score)
                 {
-                    print("winner");
-                    GameManager.the.players[i].playerObject.transform.position =
-                    levels[currentLevel].spawnPoints[i].position;
-                    GameManager.the.players[i].playerObject.transform.rotation =
-                        levels[currentLevel].spawnPoints[i].rotation;
+                    print("winner p1");
+                    GameManager.the.players[0].playerObject.transform.position =
+                    levels[currentLevel].spawnPoints[0].position;
+                    GameManager.the.players[0].playerObject.transform.rotation =
+                        levels[currentLevel].spawnPoints[0].rotation;
+
+                    
+                    GameManager.the.players[1].playerObject.transform.position =
+                    levels[currentLevel].spawnPoints[1].position;
+                    GameManager.the.players[1].playerObject.transform.rotation =
+                        levels[currentLevel].spawnPoints[1].rotation;
+                    
                 }
                 else
                 {
-                    GameManager.the.players[i].playerObject.transform.position =
-                    levels[currentLevel].spawnPoints[i+1].position;
-                    GameManager.the.players[i].playerObject.transform.rotation =
-                        levels[currentLevel].spawnPoints[i+1].rotation;
+                    print("p2 won");
+                    GameManager.the.players[0].playerObject.transform.position =
+                    levels[currentLevel].spawnPoints[1].position;
+                    GameManager.the.players[0].playerObject.transform.rotation =
+                        levels[currentLevel].spawnPoints[1].rotation;
+
+                    GameManager.the.players[1].playerObject.transform.position =
+                    levels[currentLevel].spawnPoints[0].position;
+                    GameManager.the.players[1].playerObject.transform.rotation =
+                        levels[currentLevel].spawnPoints[0].rotation;
                 }
             }
 
